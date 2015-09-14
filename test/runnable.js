@@ -139,6 +139,20 @@ describe('Runnable(title, fn)', function(){
           })
         })
       })
+
+      describe('when an exception is thrown and is allowed to remain uncaught', function(){
+        it('throws an error when it is allowed', function(done) {
+          var test = new Runnable('foo', function(){
+            throw new Error('fail');
+          });
+          test.allowUncaught = true;
+          function fail() {
+            test.run(function(err) {});
+          }
+          fail.should.throw('fail');
+          done();
+        })
+      })
     })
 
     describe('when timeouts are disabled', function() {
@@ -244,6 +258,21 @@ describe('Runnable(title, fn)', function(){
             done();
           })
         });
+      })
+
+      describe('when an exception is thrown and is allowed to remain uncaught', function(){
+        it('throws an error when it is allowed', function(done) {
+          var test = new Runnable('foo', function(done){
+            throw new Error('fail');
+            process.nextTick(done);
+          });
+          test.allowUncaught = true;
+          function fail() {
+            test.run(function(err) {});
+          }
+          fail.should.throw('fail');
+          done();
+        })
       })
 
       describe('when an error is passed', function(){

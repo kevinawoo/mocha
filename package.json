@@ -1,6 +1,6 @@
 {
   "name": "mocha",
-  "version": "2.2.5",
+  "version": "2.3.2",
   "description": "simple, flexible, fun test framework",
   "keywords": [
     "mocha",
@@ -284,8 +284,7 @@
     "escape-string-regexp": "1.0.2",
     "glob": "4.0.6",
     "growl": "1.8.1",
-    "jade": "1.11.0",
-    "lodash.create": "^3.1.1",
+    "jade": "0.26.3",
     "mkdirp": "0.5.0",
     "supports-color": "1.2.0"
   },
