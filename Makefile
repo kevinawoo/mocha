@@ -41,26 +41,26 @@ test-jsapi:
 	@node test/jsapi
 
 test-unit:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		test/acceptance/*.js \
 		--growl \
 		test/*.js
 
 test-integration:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		test/integration/*.js
 
 test-compilers:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--compilers coffee:coffee-script/register,foo:./test/compiler/foo \
 		test/acceptance/test.coffee \
 		test/acceptance/test.foo
 
 test-requires:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--compilers coffee:coffee-script/register \
 		--require test/acceptance/require/a.js \
@@ -70,25 +70,25 @@ test-requires:
 		test/acceptance/require/require.js
 
 test-bdd:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui bdd \
 		test/acceptance/interfaces/bdd
 
 test-tdd:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui tdd \
 		test/acceptance/interfaces/tdd
 
 test-qunit:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui qunit \
 		test/acceptance/interfaces/qunit
 
 test-exports:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui exports \
 		test/acceptance/interfaces/exports
@@ -97,52 +97,52 @@ test-glob:
 	@./test/acceptance/glob/glob.sh
 
 test-reporters:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		test/reporters/*.js
 
 test-only:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui tdd \
 		test/acceptance/misc/only/tdd
 
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui bdd \
 		test/acceptance/misc/only/bdd
 
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui qunit \
 		test/acceptance/misc/only/bdd-require
 
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		--ui qunit \
 		test/acceptance/misc/only/qunit
 
 test-mocha:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter $(REPORTER) \
 		test/mocha
 
 non-tty:
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter dot \
 		test/acceptance/interfaces/bdd 2>&1 > /tmp/dot.out
 
 	@echo dot:
 	@cat /tmp/dot.out
 
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter list \
 		test/acceptance/interfaces/bdd 2>&1 > /tmp/list.out
 
 	@echo list:
 	@cat /tmp/list.out
 
-	@./bin/mocha \
+	@./bin/mocha --no-colors \
 		--reporter spec \
 		test/acceptance/interfaces/bdd 2>&1 > /tmp/spec.out
 
